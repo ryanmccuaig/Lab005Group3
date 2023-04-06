@@ -522,187 +522,140 @@ void loop()
                         {
                           Bot.ToPosition("S1", 1300);
                           uc_Drive_Index = 17;
+                          prevTime = millis();
                           break;
                         }
                         case 17:
                         {
                           Bot.Forward("D1", uc_Drive_Speed, uc_Drive_Speed);
-                          uc_Drive_Index = 18;
+                          if((millis() - prevTime >= 5000)){
+                            Bot.Stop("D1");
+                            uc_Drive_Index = 18;
+                          }  
                           break;
                         }
                         case 18:
                         {
+                          Bot.ToPosition("S1", 1250);
                           uc_Drive_Index = 19;
                           break;
                         }
                         case 19:
                         {
+                          Bot.ToPosition("S1", 1200);
                           uc_Drive_Index = 20;
                           break;
                         }
                         case 20:
                         {
+                          Bot.ToPosition("S1", 1150);
                           uc_Drive_Index = 21;
                           break;
                         }
                         case 21:
                         {
+                          Bot.ToPosition("S1", 1100);
                           uc_Drive_Index = 22;
                           break;
                         }
                         case 22:
                         {
-                          Bot.Stop("D1");
+                          Bot.ToPosition("S1", 1050);
                           uc_Drive_Index = 23;
                           break;
                         }
                         case 23:
                         {
-                          Bot.ToPosition("S1", 1250);
+                          Bot.ToPosition("S1", 1000);
                           uc_Drive_Index = 24;
                           break;
                         }
                         case 24:
                         {
-                          Bot.ToPosition("S1", 1200);
+                          Bot.ToPosition("S1", 950);
                           uc_Drive_Index = 25;
                           break;
                         }
                         case 25:
                         {
-                          Bot.ToPosition("S1", 1150);
+                          Bot.ToPosition("S1", 900);
                           uc_Drive_Index = 26;
                           break;
                         }
                         case 26:
                         {
-                          Bot.ToPosition("S1", 1100);
+                          Bot.ToPosition("S1", 850);
                           uc_Drive_Index = 27;
                           break;
                         }
                         case 27:
                         {
-                          Bot.ToPosition("S1", 1050);
+                          Bot.ToPosition("S1", 800);
                           uc_Drive_Index = 28;
+                          prevTime = millis();
                           break;
                         }
                         case 28:
                         {
-                          Bot.ToPosition("S1", 1000);
-                          uc_Drive_Index = 29;
+                          Bot.Forward("D1", uc_Drive_Speed, uc_Drive_Speed);
+                          if ((millis() - prevTime) >= 5000){
+                            Bot.Stop("D1");
+                            uc_Drive_Index = 29;
+                          }  
                           break;
                         }
                         case 29:
                         {
-                          Bot.ToPosition("S1", 950);
+                          Bot.ToPosition("S1", 850);
                           uc_Drive_Index = 30;
+                          break;
+                        }
+                        case 30:
+                        {
+                          Bot.ToPosition("S1", 900);
+                          uc_Drive_Index = 31;
                           break;
                         }
                         case 31:
                         {
-                          Bot.ToPosition("S1", 900);
+                          Bot.ToPosition("S1", 950);
                           uc_Drive_Index = 32;
+                          break;
+                        }
+                        case 32:
+                        {
+                          Bot.ToPosition("S1", 1000);
+                          uc_Drive_Index = 33;
                           break;
                         }
                         case 33:
                         {
-                          Bot.ToPosition("S1", 850);
+                          Bot.ToPosition("S1", 1050);
                           uc_Drive_Index = 34;
                           break;
                         }
-                        case 35:
-                        {
-                          Bot.ToPosition("S1", 800);
-                          //uc_Drive_Index = 36;
-                          break;
-                        }
-                        case 36:
-                        {
-                          Bot.Forward("D1", uc_Drive_Speed, uc_Drive_Speed);
-                          uc_Drive_Index = 37;
-                          break;
-                        }
-                        case 37:
-                        {
-                          
-                          uc_Drive_Index = 38;
-                          break;
-                        }
-                        case 38:
-                        {
-                          
-                          uc_Drive_Index = 39;
-                          break;
-                        }
-                        case 39:
-                        {
-                          
-                          uc_Drive_Index = 40;
-                          break;
-                        }
-                        case 40:
-                        {
-                          Bot.Stop("D1");
-                          uc_Drive_Index = 41;
-                          break;
-                        }
-                        case 41:
-                        {
-                          Bot.ToPosition("S1", 850);
-                          uc_Drive_Index = 42;
-                          break;
-                        }
-                        case 42:
-                        {
-                          Bot.ToPosition("S1", 900);
-                          uc_Drive_Index = 43;
-                          break;
-                        }
-                        case 43:
-                        {
-                          Bot.ToPosition("S1", 950);
-                          uc_Drive_Index = 44;
-                          break;
-                        }
-                        case 44:
-                        {
-                          Bot.ToPosition("S1", 1000);
-                          uc_Drive_Index = 45;
-                          break;
-                        }
-                        case 45:
-                        {
-                          Bot.ToPosition("S1", 1050);
-                          uc_Drive_Index = 46;
-                          break;
-                        }
-                        case 46:
+                        case 34:
                         {
                           Bot.Forward("D1", uc_Drive_Speed, uc_Drive_Speed);
                           if (distance > 25){
                             Bot.Stop("D1");
-
-                            uc_Drive_Index = 47;
+                            uc_Drive_Index = 35;
                             prevTime = millis();
                           }
-                          
                           break;
                         }
-                        case 47:
+                        case 35:
                         {
                           Bot.Reverse("D1", uc_Drive_Speed, uc_Drive_Speed);
-                          if(driveEncoders.lRawEncoderLeftSpeed/10000*(millis()-prevTime)/1000>=0.5){
+                          if((millis()-prevTime) >= 5000){
                             Bot.Stop("D1");
-                            uc_Drive_Index = 48;
+                            uc_Drive_Index = 36;
                           }
-                          
                           break;
                         }
-                        case 48:
+                        case 36:
                         {
-                          
-                          SmartLEDs.setPixelColor(0, ui_Mode_Indicator[6]);         // Set pixel colors to = mode 
-                          SmartLEDs.show();
+                          ui_Robot_Mode_Index = 6;
                           break;
                         }
                         
@@ -890,7 +843,9 @@ void loop()
            
          case 6: //add your code to do something 
          {
-            ui_Robot_Mode_Index = 0; //  !!!!!!!  remove if using the case
+              SmartLEDs.setPixelColor(0, ui_Mode_Indicator[4]);         // Set pixel colors to = mode 
+              SmartLEDs.show();
+            
             break;
          } 
       }
